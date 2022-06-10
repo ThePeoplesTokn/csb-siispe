@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="node_modules/web3/dist/web3.min.js"
+    ></script>
+
+    <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <style>
+    body {
+      background-color: violet;
+    }
+  </style>
+  <body>
+    <div>
+      <div class="w3-container w3-center">
+        <h2>Donate to ThePeoplesToken</h2>
+        <button
+          class="pay-button1 w3-button w3-xlarge w3-hover-white w3-purple w3-round-xxlarge"
+        >
+          Donate 1 BNB
+        </button>
+        <div style="padding: 10px;">
+          <button
+            class="pay-button2 w3-button w3-xlarge w3-hover-white w3-purple w3-round-xxlarge"
+          >
+            Donate .5 BNB
+          </button>
+        </div>
+        <div style="padding: 10px;">
+          <button
+            class="pay-button3 w3-button w3-xlarge w3-hover-white w3-purple w3-round-xxlarge"
+          >
+            Donate $1 USD
+          </button>
+        </div>
+        <div style="padding: 10px;">
+          <button
+            class="pay-button4 w3-button w3-xlarge w3-hover-white w3-purple w3-round-xxlarge"
+          >
+            Donate $5 USD
+          </button>
+        </div>
+        <div style="padding: 10px;">
+          <button
+            class="pay-button5 w3-button w3-xlarge w3-hover-white w3-purple w3-round-xxlarge"
+          >
+            Donate $10 USD
+          </button>
+        </div>
+        <div style="padding: 10px;">
+          <button
+            class="pay-button6 w3-button w3-xlarge w3-hover-white w3-purple w3-round-xxlarge"
+          >
+            Donate $20 USD
+          </button>
+        </div>
+        <div style="padding: 10px;">
+          <button
+            class="pay-button7 w3-button w3-xlarge w3-hover-white w3-purple w3-round-xxlarge"
+          >
+            Donate $50 USD
+          </button>
+        </div>
+        <div style="padding: 10px;">
+          <button
+            class="pay-button8 w3-button w3-xlarge w3-hover-white w3-purple w3-round-xxlarge"
+          >
+            Donate $100 USD
+          </button>
+          <h2>Charity Wallet Address <br>0x1B7A5754C9a76440dEc702AB5c31029F0457bada</h2>
+        </div>
+       
+        
+      <div id="status"></div>
+    </div>
+    <script type="text/javascript">
+      window.addEventListener("load", async () => {
+        if (window.ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+            await ethereum.enable();
+            initPayButton1();
+          } catch (err) {
+            $("#status").html("User denied account access", err);
+          }
+        } else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          initPayButton1();
+        } else {
+          $("#status").html("No Metamask (or other Web3 Provider) installed");
+        }
+      });
+
+      const initPayButton1 = () => {
+        $(".pay-button1").click(() => {
+          // paymentAddress is where funds will be send to
+          const paymentAddress = "0x1B7A5754C9a76440dEc702AB5c31029F0457bada";
+          const amountEth = 1;
+
+          web3.eth.sendTransaction(
+            {
+              to: paymentAddress,
+              value: web3.toWei(amountEth, "ether")
+            },
+            (err, transactionId) => {
+              if (err) {
+                console.log("Payment failed", err);
+                $("#status").html("Payment failed");
+              } else {
+                console.log("Payment successful", transactionId);
+                $("#status").html("Payment successful");
+              }
+            }
+          );
+        });
+      };
+    </script>
+    <script type="text/javascript">
+      window.addEventListener("load", async () => {
+        if (window.ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+            await ethereum.enable();
+            initPayButton2();
+          } catch (err) {
+            $("#status").html("User denied account access", err);
+          }
+        } else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          initPayButton2();
+        } else {
+          $("#status").html("No Metamask (or other Web3 Provider) installed");
+        }
+      });
+
+      const initPayButton2 = () => {
+        $(".pay-button2").click(() => {
+          // paymentAddress is where funds will be send to
+          const paymentAddress = "0x1B7A5754C9a76440dEc702AB5c31029F0457bada";
+          const amountEth = 0.5;
+
+          web3.eth.sendTransaction(
+            {
+              to: paymentAddress,
+              value: web3.toWei(amountEth, "ether")
+            },
+            (err, transactionId) => {
+              if (err) {
+                console.log("Payment failed", err);
+                $("#status").html("Payment failed");
+              } else {
+                console.log("Payment successful", transactionId);
+                $("#status").html("Payment successful");
+              }
+            }
+          );
+        });
+      };
+    </script>
+    <script type="text/javascript">
+      window.addEventListener("load", async () => {
+        if (window.ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+            await ethereum.enable();
+            initPayButton3();
+          } catch (err) {
+            $("#status").html("User denied account access", err);
+          }
+        } else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          initPayButton3();
+        } else {
+          $("#status").html("No Metamask (or other Web3 Provider) installed");
+        }
+      });
+
+      const initPayButton3 = () => {
+        $(".pay-button3").click(() => {
+          // paymentAddress is where funds will be send to
+          const paymentAddress = "0x1B7A5754C9a76440dEc702AB5c31029F0457bada";
+          const amountEth = 0.0034;
+
+          web3.eth.sendTransaction(
+            {
+              to: paymentAddress,
+              value: web3.toWei(amountEth, "ether")
+            },
+            (err, transactionId) => {
+              if (err) {
+                console.log("Payment failed", err);
+                $("#status").html("Payment failed");
+              } else {
+                console.log("Payment successful", transactionId);
+                $("#status").html("Payment successful");
+              }
+            }
+          );
+        });
+      };
+    </script>
+    <script type="text/javascript">
+      window.addEventListener("load", async () => {
+        if (window.ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+            await ethereum.enable();
+            initPayButton4();
+          } catch (err) {
+            $("#status").html("User denied account access", err);
+          }
+        } else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          initPayButton4();
+        } else {
+          $("#status").html("No Metamask (or other Web3 Provider) installed");
+        }
+      });
+
+      const initPayButton4 = () => {
+        $(".pay-button4").click(() => {
+          // paymentAddress is where funds will be send to
+          const paymentAddress = "0x1B7A5754C9a76440dEc702AB5c31029F0457bada";
+          const amountEth = 0.0017;
+
+          web3.eth.sendTransaction(
+            {
+              to: paymentAddress,
+              value: web3.toWei(amountEth, "ether")
+            },
+            (err, transactionId) => {
+              if (err) {
+                console.log("Payment failed", err);
+                $("#status").html("Payment failed");
+              } else {
+                console.log("Payment successful", transactionId);
+                $("#status").html("Payment successful");
+              }
+            }
+          );
+        });
+      };
+    </script>
+    <script type="text/javascript">
+      window.addEventListener("load", async () => {
+        if (window.ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+            await ethereum.enable();
+            initPayButton5();
+          } catch (err) {
+            $("#status").html("User denied account access", err);
+          }
+        } else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          initPayButton5();
+        } else {
+          $("#status").html("No Metamask (or other Web3 Provider) installed");
+        }
+      });
+
+      const initPayButton5 = () => {
+        $(".pay-button5").click(() => {
+          // paymentAddress is where funds will be send to
+          const paymentAddress = "0x1B7A5754C9a76440dEc702AB5c31029F0457bada";
+          const amountEth = 0.034;
+
+          web3.eth.sendTransaction(
+            {
+              to: paymentAddress,
+              value: web3.toWei(amountEth, "ether")
+            },
+            (err, transactionId) => {
+              if (err) {
+                console.log("Payment failed", err);
+                $("#status").html("Payment failed");
+              } else {
+                console.log("Payment successful", transactionId);
+                $("#status").html("Payment successful");
+              }
+            }
+          );
+        });
+      };
+    </script>
+    <script type="text/javascript">
+      window.addEventListener("load", async () => {
+        if (window.ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+            await ethereum.enable();
+            initPayButton6();
+          } catch (err) {
+            $("#status").html("User denied account access", err);
+          }
+        } else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          initPayButton6();
+        } else {
+          $("#status").html("No Metamask (or other Web3 Provider) installed");
+        }
+      });
+
+      const initPayButton6 = () => {
+        $(".pay-button6").click(() => {
+          // paymentAddress is where funds will be send to
+          const paymentAddress = "0x1B7A5754C9a76440dEc702AB5c31029F0457bada";
+          const amountEth = 0.069;
+
+          web3.eth.sendTransaction(
+            {
+              to: paymentAddress,
+              value: web3.toWei(amountEth, "ether")
+            },
+            (err, transactionId) => {
+              if (err) {
+                console.log("Payment failed", err);
+                $("#status").html("Payment failed");
+              } else {
+                console.log("Payment successful", transactionId);
+                $("#status").html("Payment successful");
+              }
+            }
+          );
+        });
+      };
+    </script>
+    <script type="text/javascript">
+      window.addEventListener("load", async () => {
+        if (window.ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+            await ethereum.enable();
+            initPayButton7();
+          } catch (err) {
+            $("#status").html("User denied account access", err);
+          }
+        } else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          initPayButton7();
+        } else {
+          $("#status").html("No Metamask (or other Web3 Provider) installed");
+        }
+      });
+
+      const initPayButton7 = () => {
+        $(".pay-button7").click(() => {
+          // paymentAddress is where funds will be send to
+          const paymentAddress = "0x1B7A5754C9a76440dEc702AB5c31029F0457bada";
+          const amountEth = 0.17;
+
+          web3.eth.sendTransaction(
+            {
+              to: paymentAddress,
+              value: web3.toWei(amountEth, "ether")
+            },
+            (err, transactionId) => {
+              if (err) {
+                console.log("Payment failed", err);
+                $("#status").html("Payment failed");
+              } else {
+                console.log("Payment successful", transactionId);
+                $("#status").html("Payment successful");
+              }
+            }
+          );
+        });
+      };
+    </script>
+    <script type="text/javascript">
+      window.addEventListener("load", async () => {
+        if (window.ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+            await ethereum.enable();
+            initPayButton8();
+          } catch (err) {
+            $("#status").html("User denied account access", err);
+          }
+        } else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          initPayButton8();
+        } else {
+          $("#status").html("No Metamask (or other Web3 Provider) installed");
+        }
+      });
+
+      const initPayButton8 = () => {
+        $(".pay-button8").click(() => {
+          // paymentAddress is where funds will be send to
+          const paymentAddress = "0x1B7A5754C9a76440dEc702AB5c31029F0457bada";
+          const amountEth = 0.34;
+
+          web3.eth.sendTransaction(
+            {
+              to: paymentAddress,
+              value: web3.toWei(amountEth, "ether")
+            },
+            (err, transactionId) => {
+              if (err) {
+                console.log("Payment failed", err);
+                $("#status").html("Payment failed");
+              } else {
+                console.log("Payment successful", transactionId);
+                $("#status").html("Payment successful");
+              }
+            }
+          );
+        });
+      };
+    </script>
+    <script type="text/javascript">
+      document.getElementById("myButton10").onclick = function () {
+        location.href =
+          "www.bscscan.com/address/0x1B7A5754C9a76440dEc702AB5c31029F0457bada";
+      };
+    </script>
+  </body>
+</html>
